@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
-import  firebase from 'firebase';
+//import * as firebase from 'firebase';
+
+
+//ES Modules:
+import firebase from 'firebase/app';
+import 'firebase/auth';
 
 
 class AuthWithGoogle extends Component {

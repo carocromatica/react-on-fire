@@ -4,10 +4,12 @@ import AuthWhithGoogle from './AuthWhithGoogle';
 import AuthWithEmailAndPassword from './AuthWithEmailAndPassword';
 import RegisterWithFirebase from './RegisterWithFirebase';
 
-import firebase from 'firebase/app'
-import 'firebase/auth'
-import 'firebase/firestore'
-import 'firebase/storage'
+// import * as firebase from 'firebase';
+
+
+//ES Modules:
+import firebase from 'firebase/app';
+import 'firebase/auth';
 
  class App extends Component {
  constructor() { 
@@ -56,11 +58,8 @@ import 'firebase/storage'
   render() {
     return (
       <div className="App">
-        
         <h1>{this.state.users}</h1> 
         <div className=''>
-  
-          
         </div>
             <div className=''>
                {this.renderLoginButton()}

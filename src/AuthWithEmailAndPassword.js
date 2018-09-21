@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
-import  firebase from 'firebase';
+//import * as firebase from 'firebase';
+
+
+//ES Modules:
+import firebase from 'firebase/app';
+import 'firebase/auth';
 
 
 class AuthWithEmailAndPassword extends Component {
@@ -43,11 +48,11 @@ renderLoginButtonE () {
       return(
       // si no está logueado
       <div>
-          <form action="" className="white" >
+          
       <input type='email' id='email' placeholder='email'/>
         <input type='password' id='password' placeholder='password'/>
         <button className="btn pink lighten-1 z-depth-0" onClick={this.handleAuthWithEmailAndPassword}>Ingresar</button>
-        </form>
+        
       </div>
       );
   }
