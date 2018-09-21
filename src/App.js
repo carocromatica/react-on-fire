@@ -3,7 +3,7 @@ import './App.css';
 import AuthWhithGoogle from './AuthWhithGoogle';
 import AuthWithEmailAndPassword from './AuthWithEmailAndPassword';
 import RegisterWithFirebase from './RegisterWithFirebase';
-import  firebase from 'firebase';
+import  firebase from './config/fbConfig';
 
 
 
