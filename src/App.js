@@ -3,48 +3,39 @@ import './App.css';
 import AuthWhithGoogle from './AuthWhithGoogle';
 import AuthWithEmailAndPassword from './AuthWithEmailAndPassword';
 import RegisterWithFirebase from './RegisterWithFirebase';
-import  firebase from './config/fbConfig';
 
+import firebase from 'firebase/app'
+import 'firebase/auth'
+import 'firebase/firestore'
+import 'firebase/storage'
 
-
-class App extends Component {
-
-constructor() { 
+ class App extends Component {
+ constructor() { 
   super();
-
-  this.state = {  
-
-    user: null
+   this.state = {  
+     user: null
   };   
-
-  this.handleAuthWithFacebook = this.handleAuthWithFacebook.bind(this);
+   this.handleAuthWithFacebook = this.handleAuthWithFacebook.bind(this);
   this.handleLogout = this.handleLogout.bind(this);
   this.renderLoginButton = this.renderLoginButton.bind(this);
-
-}
-
-componentWillMount () {
+ }
+ componentWillMount () {
   firebase.auth().onAuthStateChanged(user => {
       this.setState({user});
   });
 }
-
-  handleAuthWithFacebook () {
+   handleAuthWithFacebook () {
     const provider = new firebase.auth.FacebookAuthProvider();
-
-    firebase.auth().signInWithPopup(provider)
+     firebase.auth().signInWithPopup(provider)
         .then(result => console.log(`${result.user.email} ha iniciado sesión`))
         .catch(error => console.log(`error ${error.code}: ${error.message}`));
-
-}
-
-handleLogout(){
+ }
+ handleLogout(){
   firebase.auth().signOut()
   .then(result => console.log(`${result.user.email} ha salido`))
   .catch(error => console.log(`error ${error.code}: ${error.message}`));
 }
-
-renderLoginButton () {
+ renderLoginButton () {
   // si el usuario está logueado
   if (this.state.user) {
       return (
@@ -61,8 +52,7 @@ renderLoginButton () {
       );
   }
 }
-
-// display users in my template
+ // display users in my template
   render() {
     return (
       <div className="App">
@@ -82,5 +72,4 @@ renderLoginButton () {
     );
   }
 }
-
-export default App;
+ export default App;

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import  firebase from 'firebase';
 
+
 class RegisterWithFirebase extends Component {
 
 constructor() { 
@@ -15,12 +16,10 @@ constructor() {
   this.registerWithFirebase = this.registerWithFirebase.bind(this);
  
 }
-
   //Registro
 registerWithFirebase() {
     const emailValue = document.getElementById('emailR').value;
 	const passwordValue = document.getElementById('passwordR').value;
-
     const nameValue = document.getElementById("name").value;
 
     firebase.auth().createUserWithEmailAndPassword(emailValue, passwordValue)
@@ -30,7 +29,6 @@ registerWithFirebase() {
             user.updateProfile({ displayName: nameValue })
                 .then(() => {
                     localStorage.setItem("user", JSON.stringify(user));
-            
                 })
                 .catch((error) => {
                     console.log(error)
@@ -38,7 +36,6 @@ registerWithFirebase() {
 
         })
         .catch((error) => {
-            
             console.log("Error de firebase > Código > " + error.code);
             console.log("Error de firebase > Mensaje > " + error.message);
         });
@@ -51,7 +48,6 @@ renderRegisterButton () {
           <div>
               <img width='100' src={this.state.user.photoURL} alt={this.state.user.displayName}/>
               <p>Hola {this.state.user.displayName}!</p>
-            
           </div>
       );
   }else{

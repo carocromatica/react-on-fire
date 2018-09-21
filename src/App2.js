@@ -3,7 +3,7 @@ import './App.css';
 import  firebase from 'firebase';
 
 
-class App extends Component {
+class App2 extends Component {
 
 constructor() { // 1st step to set state is to create a constructor
   super();
@@ -12,10 +12,6 @@ constructor() { // 1st step to set state is to create a constructor
 // empty object at first, but whatever that is contained inside this object is the state of our component
     users: null // property of users
   };   
-
-  this.handleAuth = this.handleAuth.bind(this);
-  this.handleLogout = this.handleLogout.bind(this);
-  this.renderLoginButton = this.renderLoginButton.bind(this);
 
 }
 
@@ -40,39 +36,6 @@ componentWillMount () {
   }
 
 
-  handleAuth () {
-    const provider = new firebase.auth.FacebookAuthProvider();
-
-    firebase.auth().signInWithPopup(provider)
-        .then(result => console.log(`${result.user.email} ha iniciado sesión`))
-        .catch(error => console.log(`error ${error.code}: ${error.message}`));
-
-}
-
-handleLogout(){
-  firebase.auth().signOut()
-  .then(result => console.log(`${result.user.email} ha salido`))
-  .catch(error => console.log(`error ${error.code}: ${error.message}`));
-}
-
-renderLoginButton () {
-  // si el usuario está logueado
-  if (this.state.user) {
-      return (
-          <div>
-              <img src={this.state.user.photoURL} alt={this.user.displayName}/>
-              <p>Hola {this.state.user.displayName}!</p>
-              <button onClick={this.handleLogout}>Salir</button>
-          </div>
-      );
-  }else{
-      return(
-      // si no está logueado
-      <button onClick={this.handleAuth}>Login con feibu</button>
-      );
-  }
-}
-
 // display users in my template
   render() {
     return (
@@ -82,11 +45,11 @@ renderLoginButton () {
           <h2>Titulo</h2>
         </div>
             <p className='App-intro'>
-                <button onClick={this.handleAuth}>Login con Feibu</button>
+               
             </p>
       </div>
     );
   }
 }
 
-export default App;
+export default App2;

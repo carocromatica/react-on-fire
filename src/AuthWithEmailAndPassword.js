@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import  firebase from 'firebase';
 
+
 class AuthWithEmailAndPassword extends Component {
 
 constructor() { 
@@ -36,7 +37,6 @@ renderLoginButtonE () {
           <div>
               <img width='100' src={this.state.user.photoURL} alt={this.state.user.displayName}/>
               <p>Hola {this.state.user.displayName}!</p>
-            
           </div>
       );
   }else{
