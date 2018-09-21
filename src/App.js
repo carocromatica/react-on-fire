@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
-import './App.css';
-import AuthWhithGoogle from './AuthWhithGoogle';
-import AuthWithEmailAndPassword from './AuthWithEmailAndPassword';
-import RegisterWithFirebase from './RegisterWithFirebase';
+import './Components/App.css';
+import AuthWhithGoogle from './Components/AuthWhithGoogle';
+import AuthWithEmailAndPassword from './Components/AuthWithEmailAndPassword';
+import RegisterWithFirebase from './Components/RegisterWithFirebase';
 
-// import * as firebase from 'firebase';
-
-
-//ES Modules:
-import firebase from 'firebase/app';
-import 'firebase/auth';
+import firebase from 'firebase/app'
+import 'firebase/auth'
+import 'firebase/firestore'
+import 'firebase/storage'
 
  class App extends Component {
  constructor() { 
@@ -58,8 +56,11 @@ import 'firebase/auth';
   render() {
     return (
       <div className="App">
+        
         <h1>{this.state.users}</h1> 
         <div className=''>
+  
+          
         </div>
             <div className=''>
                {this.renderLoginButton()}
